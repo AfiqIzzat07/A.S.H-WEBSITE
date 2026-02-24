@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebas
 import { getDatabase, ref, onValue, set }
   from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
 
-/* ===== FIREBASE CONFIG (YOUR NEW PROJECT) ===== */
+/* ===== FIREBASE CONFIG ===== */
 const firebaseConfig = {
   apiKey: "AIzaSyCn1ocjTr9yE297jt8im1URPkOzzbJti4E",
   authDomain: "ash-smart-dustbin.firebaseapp.com",
@@ -25,14 +25,14 @@ const statusText = document.getElementById("status");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
 
-/* ===== DB REFS (MATCH ESP32) ===== */
+/* ===== DB REFS ===== */
 const fullnessRef = ref(db, "dustbin/fullness");
 const servoRef = ref(db, "dustbin/servo");
 
 /* ===== UI UPDATE ===== */
 function updateUI(percent) {
   fullnessText.innerText = percent + "%";
-  fill.style.transform = rotate(${percent * 1.8}deg);
+  fill.style.transform = rotate(${percent * 1.8}deg); // ✅ FIXED
 
   if (percent >= 80) {
     fill.style.background = "#ff4444";
