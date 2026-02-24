@@ -32,7 +32,7 @@ const servoRef = ref(db, "dustbin/servo");
 /* ===== UI UPDATE ===== */
 function updateUI(percent) {
   fullnessText.innerText = percent + "%";
-  fill.style.transform = rotate(${percent * 1.8}deg); // ✅ FIXED
+  fill.style.transform = 'rotate(${percent * 1.8}deg)'; // ✅ FIXED
 
   if (percent >= 80) {
     fill.style.background = "#ff4444";
